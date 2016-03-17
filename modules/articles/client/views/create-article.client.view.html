@@ -1,23 +1,10 @@
 <section ng-controller="ArticlesController">
   <div class="page-header">
-    <h1>New Post</h1>
+    <h1>New Job</h1>
   </div>
   <div class="col-md-12">
     <form name="articleForm" class="form-horizontal" ng-submit="create(articleForm.$valid)" novalidate>
       <fieldset>
-        <div class="form-group" show-errors>
-            <label placeholder="Section" for="section">Section</label>
-            <select name="section" type="section" ng-model="section" id="section" class="form-control"  required>
-                <option value="" disabled selected>Choose One</option>
-                <option value="Jobs">Jobs</option>
-                <option value="Housing">Housing</option>
-                <option value="Events">Events</option>
-            </select>
-            <!--input name="section" type="section" ng-model="section" id="section" class="form-control" placeholder="Section" required-->
-            <div ng-messages="articleForm.section.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Article section is required.</p>
-            </div>
-        </div>
         <div class="form-group" show-errors>
           <label for="title">Title</label>
           <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
@@ -35,6 +22,9 @@
         <div class="form-group">
           <label for="content">Content</label>
           <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+          <div ng-messages="vm.form.housingForm.content.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Housing content is required.</p>
+          </div>
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-default">

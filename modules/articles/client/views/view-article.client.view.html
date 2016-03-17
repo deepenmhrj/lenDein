@@ -1,10 +1,9 @@
 <section ng-controller="ArticlesController" ng-init="findOne()">
   <div class="page-header">
-    <h1 ng-bind="article.section"></h1>
+    <h3 ng-bind="article.title"></h3>
     <h4 ng-bind="article.location"></h4>
-    <h4 ng-bind="article.title"></h4>
-
   </div>
+
   <div class="pull-right" ng-show="authentication.user._id == article.user._id">
     <a class="btn btn-primary" ui-sref="articles.edit({articleId: article._id})">
       <i class="glyphicon glyphicon-edit"></i>
@@ -13,6 +12,7 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
+
   <small>
     <em class="text-muted">
       Posted on
@@ -21,5 +21,6 @@
       <span ng-bind="article.user.displayName"></span>
     </em>
   </small>
+  
   <p class="lead" ng-bind="article.content"></p>
 </section>

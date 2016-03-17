@@ -14,12 +14,6 @@ var ArticleSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  section: {
-    type: String,
-    default: '',
-    trim: true,
-    required: 'Section cannot be blank'
-  },
   location:{ 
     type: String,
     default: '',
@@ -35,7 +29,8 @@ var ArticleSchema = new Schema({
   content: {
     type: String,
     default: '',
-    trim: true
+    trim: true,
+    required: 'Title cannot be blank'
   },
   user: {
     type: Schema.ObjectId,
