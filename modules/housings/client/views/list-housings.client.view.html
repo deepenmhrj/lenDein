@@ -1,0 +1,22 @@
+<section ng-controller="HousingsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Housings</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="housing in vm.housings"
+       data-ui-sref="housings.view({ housingId: housing._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="housing.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="housing.user" data-ng-bind="housing.user.displayName"></span>
+        <span data-ng-if="!housing.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="housing.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.housings.$resolved && !vm.housings.length">
+    No Housings posts yet, why don't you <a data-ui-sref="housings.create">create one</a>?
+  </div>
+</section>
